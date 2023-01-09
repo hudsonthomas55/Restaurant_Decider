@@ -1,3 +1,7 @@
+# ---------------------------- Imports ---------------------------- #
+import random
+
+
 # ---------------------------- Begin Script ---------------------------- #
 
 # Set 'user' to False so that it will rerun code at end
