@@ -12,27 +12,31 @@ while not user:
 
     # Connect input to meal
     if user_lower == "breakfast":
-        # Still need to connect data in breakfast column.
-        with open("breakfast.txt") as b_menu:
-            b_menu.read()
-
-        print("Still in process, you requested a breakfast restaurant.")
+        def breakfast_choice():
+            with open("breakfast.txt", 'r') as b_menu:
+                restaurants = b_menu.readlines()
+                random_rest = random.choice(restaurants)
+            print(random_rest)
+            return random_rest
+        breakfast_choice()
         user = False
-
     elif user_lower == "lunch":
-        # still need to connect data in lunch column
-        with open("lunch.txt") as l_menu:
-            l_menu.read()
-
-        print("Still in process, you requested a lunch restaurant.")
+        def lunch_choice():
+            with open("lunch.txt", 'r') as l_menu:
+                restaurants = l_menu.readlines()
+                random_rest = random.choice(restaurants)
+            print(random_rest)
+            return random_rest
+        lunch_choice()
         user = False
-
     elif user_lower == "dinner":
-        # Still need to connect data in dinner column
-        with open("dinner.txt") as d_menu:
-            d_menu.read()
-
-        print("Still in process, you selected a dinner restaurant")
+        def dinner_choice():
+            with open("dinner.txt", 'r') as d_menu:
+                restaurants = d_menu.readlines()
+                random_rest = random.choice(restaurants)
+            print(random_rest)
+            return random_rest
+        dinner_choice()
         user = False
 
     else:
