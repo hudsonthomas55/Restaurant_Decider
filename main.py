@@ -47,6 +47,92 @@ def view_options():
         user = False
 
 
+def make_change():
+    global user
+    change = input("Welcome to the change menu. Would you like to 'view', 'add', or 'delete' a restaurant? "
+                   "\nType 'exit' to return to the main menu \n").lower()
+    # View meal options
+    if change == "view":
+        view_options()
+    # ------------- Allow user to add meal options
+    elif change == "add":
+        change_list()
+
+    # ------------- Allow user to delete meal options
+    elif change == "delete":
+        pass
+        # TODO: Add function for deleting items from lists
+            # TODO: Call delete function(s)
+
+    else:
+        user = False
+
+
+def change_list():
+    global user
+    option_change = input("Which list would you like to add to? 'Breakfast,' 'Lunch,' or 'Dinner? "
+                          "\nType 'exit' to return to the main menu \n").lower()
+    if option_change == "breakfast":
+        breakfast_add()
+        change_list()
+
+    elif option_change == "lunch":
+        lunch_add()
+        change_list()
+
+    elif option_change == "dinner":
+        dinner_add()
+        change_list()
+    else:
+        user = False
+
+
+def breakfast_add():
+    with open("breakfast.txt") as b_menu:
+        print(f"your current list is: \n {b_menu.read()}")
+    new_restaurant = input("\n \n What is the name of the restaurant you wish to add? \n")
+    b_menu = open("breakfast.txt", "a")  # append mode
+    b_menu.write(f"\n{new_restaurant}")
+    b_menu.close()
+    with open("breakfast.txt") as b_menu:
+        print(f"your updated list is: \n {b_menu.read()}")
+
+
+def lunch_add():
+    with open("lunch.txt") as l_menu:
+        print(f"your current list is: \n {l_menu.read()}")
+    new_restaurant = input("\n \n What is the name of the restaurant you wish to add? \n")
+    l_menu = open("lunch.txt", "a")  # append mode
+    l_menu.write(f"\n{new_restaurant}")
+    l_menu.close()
+    with open("lunch.txt") as l_menu:
+        print(f"your updated list is: \n {l_menu.read()}")
+
+
+def dinner_add():
+    with open("dinner.txt") as d_menu:
+        print(f"your current list is: \n {d_menu.read()}")
+    new_restaurant = input("\n \n What is the name of the restaurant you wish to add? \n")
+    d_menu = open("dinner.txt", "a")  # append mode
+    d_menu.write(f"\n{new_restaurant}")
+    d_menu.close()
+    with open("dinner.txt") as d_menu:
+        print(f"your updated list is: \n {d_menu.read()}")
+
+
+def breakfast_delete():
+    with open("breakfast.txt", "r+") as b_menu:
+        print(f"your current list is: \n {b_menu.read()}")
+        delete_option = input("\n \n What is the name of the restaurant you wish to delete? Ensure your spelling and "
+                              "capitalization is identical to above. \n")
+        delete = b_menu.readlines()
+        b_menu.seek(0)
+        for option in b_menu:
+            if option != delete_option:
+                b_menu.write(option)
+        b_menu.truncate()
+
+
 # --------------------------------------------- Begin Script ----------------------------------------------#
 
 # Set 'user' to False so that it will rerun code at end
@@ -71,62 +157,8 @@ while not user:
     elif user == "view":
         view_options()
 
-    # ------------- Allow user to change meal options
+    # Allow user to change meal options
     elif user == "change":
-        def make_change():
-            change = input("Welcome to the change menu. Would you like to 'view', 'add', or 'delete' a restaurant? "
-                           "\n").lower()
-            # View meal options
-            if change == "view":
-                view_options()
-
-            # ------------- Allow user to add meal options
-            elif change == "add":
-                def change_list():
-                    global user
-                    option_change = input("Which list would you like to add to? 'Breakfast,' 'Lunch,' or 'Dinner? "
-                                          "\n").lower()
-                    if option_change == "breakfast":
-                        with open("breakfast.txt") as b_menu:
-                            print(f"your current list is: \n {b_menu.read()}")
-                        new_restaurant = input("\n \n What is the name of the restaurant you wish to add? \n")
-                        b_menu = open("breakfast.txt", "a")  # append mode
-                        b_menu.write(f"\n{new_restaurant}")
-                        b_menu.close()
-                        with open("breakfast.txt") as b_menu:
-                            print(f"your updated list is: \n {b_menu.read()}")
-                        change_list()
-                    elif option_change == "lunch":
-                        with open("lunch.txt") as l_menu:
-                            print(f"your current list is: \n {l_menu.read()}")
-                        new_restaurant = input("\n \n What is the name of the restaurant you wish to add? \n")
-                        l_menu = open("lunch.txt", "a")  # append mode
-                        l_menu.write(f"\n{new_restaurant}")
-                        l_menu.close()
-                        with open("lunch.txt") as l_menu:
-                            print(f"your updated list is: \n {l_menu.read()}")
-                        change_list()
-                    elif option_change == "dinner":
-                        with open("dinner.txt") as d_menu:
-                            print(f"your current list is: \n {d_menu.read()}")
-                        new_restaurant = input("\n \n What is the name of the restaurant you wish to add? \n")
-                        d_menu = open("dinner.txt", "a")  # append mode
-                        d_menu.write(f"\n{new_restaurant}")
-                        d_menu.close()
-                        with open("dinner.txt") as d_menu:
-                            print(f"your updated list is: \n {d_menu.read()}")
-                        change_list()
-                    else:
-                        user = False
-
-                change_list()
-
-            # ------------------------------------ Delete Options ------------------------------------ #
-            elif change == "delete":
-                pass
-                # TODO: Add function for deleting items from lists
-
-
         make_change()
 
     else:
