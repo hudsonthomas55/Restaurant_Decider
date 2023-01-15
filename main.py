@@ -7,24 +7,21 @@ def breakfast_choice():
     with open("breakfast.txt", 'r') as b_menu:
         restaurants = b_menu.readlines()
         random_rest = random.choice(restaurants)
-    print(random_rest)
-    return random_rest
+    print(f"You will be eating at: {random_rest} \n")
 
 
 def lunch_choice():
     with open("lunch.txt", 'r') as l_menu:
         restaurants = l_menu.readlines()
         random_rest = random.choice(restaurants)
-    print(random_rest)
-    return random_rest
+    print(f"You will be eating at: {random_rest} \n")
 
 
 def dinner_choice():
     with open("dinner.txt", 'r') as d_menu:
         restaurants = d_menu.readlines()
         random_rest = random.choice(restaurants)
-    print(random_rest)
-    return random_rest
+    print(f"You will be eating at: {random_rest} \n")
 
 
 def view_options():
@@ -49,42 +46,61 @@ def view_options():
 
 def make_change():
     global user
-    change = input("Welcome to the change menu. Would you like to 'view', 'add', or 'delete' a restaurant? "
+    change = input("Welcome to the change menu. Would you like to 'view' or 'add' a restaurant? "
                    "\nType 'exit' to return to the main menu \n").lower()
     # View meal options
     if change == "view":
         view_options()
     # ------------- Allow user to add meal options
     elif change == "add":
-        change_list()
+        add_menu()
 
     # ------------- Allow user to delete meal options
     elif change == "delete":
-        pass
-        # TODO: Add function for deleting items from lists
-            # TODO: Call delete function(s)
+        # delete_menu()
+        print("Delete menu is not available at this time. Please try again later")
+        user = False
 
     else:
         user = False
 
 
-def change_list():
+def add_menu():
     global user
     option_change = input("Which list would you like to add to? 'Breakfast,' 'Lunch,' or 'Dinner? "
                           "\nType 'exit' to return to the main menu \n").lower()
     if option_change == "breakfast":
         breakfast_add()
-        change_list()
+        add_menu()
 
     elif option_change == "lunch":
         lunch_add()
-        change_list()
+        add_menu()
 
     elif option_change == "dinner":
         dinner_add()
-        change_list()
+        add_menu()
     else:
         user = False
+
+
+# def delete_menu():
+#     global user
+#     option_change = input("Which list would you like to delete from? 'Breakfast,' 'Lunch,' or 'Dinner? "
+#                           "\nType 'exit' to return to the main menu \n").lower()
+#     if option_change == "breakfast":
+#         breakfast_delete()
+#         delete_menu()
+#
+#     elif option_change == "lunch":
+#         lunch_delete()
+#         delete_menu()
+#
+#     elif option_change == "dinner":
+#         dinner_delete()
+#         delete_menu()
+#     else:
+#         user = False
 
 
 def breakfast_add():
@@ -120,17 +136,17 @@ def dinner_add():
         print(f"your updated list is: \n {d_menu.read()}")
 
 
-def breakfast_delete():
-    with open("breakfast.txt", "r+") as b_menu:
-        print(f"your current list is: \n {b_menu.read()}")
-        delete_option = input("\n \n What is the name of the restaurant you wish to delete? Ensure your spelling and "
-                              "capitalization is identical to above. \n")
-        delete = b_menu.readlines()
-        b_menu.seek(0)
-        for option in b_menu:
-            if option != delete_option:
-                b_menu.write(option)
-        b_menu.truncate()
+# def breakfast_delete():
+#     with open("breakfast.txt", "r+") as b_menu:
+#         print(f"your current list is: \n {b_menu.read()}")
+#         delete_option = input("\n \n What is the name of the restaurant you wish to delete? Ensure your spelling and "
+#                               "capitalization is identical to above. \n")
+#         doc = b_menu.readlines()
+#         b_menu.seek(0)
+#         for option in doc:
+#             if option != delete_option:
+#                 b_menu.write(option)
+#         b_menu.truncate()
 
 
 # --------------------------------------------- Begin Script ----------------------------------------------#
