@@ -9,6 +9,7 @@ BACKGROUND_COLOR = "#B1DDC6"
 
 # ---------------------------------------------- WINDOW SETUP ---------------------------------------------- #
 window = Tk()
+window.minsize(width=600, height=400)
 window.title("Restaurant Decider")
 window.config(padx=50, pady=50)
 
@@ -35,6 +36,40 @@ def dinner_choice():
     return_label.config(text=f"\n Your restaurant choice is: {random_rest}")
 
 
+def view_breakfast():
+    bfast_popup = Tk()
+    bfast_popup.minsize(width=300, height=400)
+    bfast_popup.title("View Your Breakfast Options")
+    bfast_popup.config(padx=50, pady=50)
+
+    with open("breakfast.txt") as b_menu:
+        print(b_menu.read())
+        return_number = 1
+        for option in b_menu.readlines():
+            option_label = Label(text=f"{return_number}. {option}", font=("Arial", 12))
+            option_label.grid(row=return_number-1)
+
+
+def view_lunch():
+    lunch_popup = Tk()
+    lunch_popup.minsize(width=300, height=400)
+    lunch_popup.title("View Your Lunch Options")
+    lunch_popup.config(padx=50, pady=50)
+
+    with open("lunch.txt") as l_menu:
+        print(l_menu.read())
+
+
+def view_dinner():
+    dinner_popup = Tk()
+    dinner_popup.minsize(width=300, height=400)
+    dinner_popup.title("View Your Dinner Options")
+    dinner_popup.config(padx=50, pady=50)
+
+    with open("dinner.txt") as d_menu:
+        print(d_menu.read())
+
+
 # ---------------------------------------------- Main Screen ---------------------------------------------- #
 
 # Top Label(s)
@@ -50,14 +85,19 @@ dinner_button = Button(text="Dinner", width=15, command=dinner_choice)
 dinner_button.grid(row=1, column=2)
 
 # Bottom Label(s)
-return_label = Label(text="\nClick a button above to decide pick a restaurant", font=("Arial", 24))
+return_label = Label(text="\nClick a button above to decide pick a restaurant \n\n", font=("Arial", 24))
 return_label.grid(row=2, column=0, columnspan=3)
 
 # add_button = Button(text="Add Restaurant", width=15, command=add_menu)
 # add_button.grid(row=3, column=0)
-# view_button = Button(text="View List", width=15, command=view_options)
-# view_button.grid(row=3, column=2)
 
+# View buttons and options
+breakfast_view_button = Button(text="View Breakfast Options", width=15, command=view_breakfast)
+breakfast_view_button.grid(row=3, column=0)
+lunch_view_button = Button(text="View Lunch Options", width=15, command=view_lunch)
+lunch_view_button.grid(row=3, column=1)
+dinner_view_button = Button(text="View Dinner Options", width=15, command=view_dinner)
+dinner_view_button.grid(row=3, column=2)
 
 # ---------------------------------------------- Add Screen ---------------------------------------------- #
 # def add_menu():
