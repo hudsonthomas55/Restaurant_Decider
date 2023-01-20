@@ -59,7 +59,7 @@ def view_lunch():
             option_list.append(option)
     for restaurant in option_list:
         option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
-        option_label.grid(row=(return_number - 1), column=0)
+        option_label.grid(row=return_number, column=0)
         return_number += 1
     back_button = Button(text="Go Back", width=15, command=main_screen)
     back_button.grid(row=0, column=0)
@@ -74,7 +74,7 @@ def view_dinner():
             option_list.append(option)
     for restaurant in option_list:
         option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
-        option_label.grid(row=(return_number - 1), column=0)
+        option_label.grid(row=return_number, column=0)
         return_number += 1
     back_button = Button(text="Go Back", width=15, command=main_screen)
     back_button.grid(row=0, column=0)
@@ -112,6 +112,7 @@ def main_screen():
     lunch_view_button.grid(row=3, column=1)
     dinner_view_button = Button(text="View Dinner Options", width=15, command=view_dinner)
     dinner_view_button.grid(row=3, column=2)
+
 
 # ---------------------------------------------- Main Screen ---------------------------------------------- #
 
