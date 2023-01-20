@@ -6,7 +6,6 @@ import random
 # ---------------------------------------------- CONSTANTS ---------------------------------------------- #
 BACKGROUND_COLOR = "#B1DDC6"
 
-
 # ---------------------------------------------- WINDOW SETUP ---------------------------------------------- #
 window = Tk()
 window.minsize(width=600, height=400)
@@ -37,37 +36,47 @@ def dinner_choice():
 
 
 def view_breakfast():
-    bfast_popup = Tk()
-    bfast_popup.minsize(width=300, height=400)
-    bfast_popup.title("View Your Breakfast Options")
-    bfast_popup.config(padx=50, pady=50)
-
+    clear_frame()
+    return_number = 1
+    option_list = []
     with open("breakfast.txt") as b_menu:
-        print(b_menu.read())
-        return_number = 1
         for option in b_menu.readlines():
-            option_label = Label(text=f"{return_number}. {option}", font=("Arial", 12))
-            option_label.grid(row=return_number-1)
+            option_list.append(option)
+    for restaurant in option_list:
+        option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
+        option_label.grid(row=(return_number - 1), column=0)
+        return_number += 1
 
 
 def view_lunch():
-    lunch_popup = Tk()
-    lunch_popup.minsize(width=300, height=400)
-    lunch_popup.title("View Your Lunch Options")
-    lunch_popup.config(padx=50, pady=50)
-
+    clear_frame()
+    return_number = 1
+    option_list = []
     with open("lunch.txt") as l_menu:
-        print(l_menu.read())
+        for option in l_menu.readlines():
+            option_list.append(option)
+    for restaurant in option_list:
+        option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
+        option_label.grid(row=(return_number - 1), column=0)
+        return_number += 1
 
 
 def view_dinner():
-    dinner_popup = Tk()
-    dinner_popup.minsize(width=300, height=400)
-    dinner_popup.title("View Your Dinner Options")
-    dinner_popup.config(padx=50, pady=50)
-
+    clear_frame()
+    return_number = 1
+    option_list = []
     with open("dinner.txt") as d_menu:
-        print(d_menu.read())
+        for option in d_menu.readlines():
+            option_list.append(option)
+    for restaurant in option_list:
+        option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
+        option_label.grid(row=(return_number - 1), column=0)
+        return_number += 1
+
+
+def clear_frame():
+    for widget in window.winfo_children():
+        widget.destroy()
 
 
 # ---------------------------------------------- Main Screen ---------------------------------------------- #
