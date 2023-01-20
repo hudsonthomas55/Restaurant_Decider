@@ -44,8 +44,10 @@ def view_breakfast():
             option_list.append(option)
     for restaurant in option_list:
         option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
-        option_label.grid(row=(return_number - 1), column=0)
+        option_label.grid(row=return_number, column=0)
         return_number += 1
+    back_button = Button(text="Go Back", width=15, command=main_screen)
+    back_button.grid(row=0, column=0)
 
 
 def view_lunch():
@@ -59,6 +61,8 @@ def view_lunch():
         option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
         option_label.grid(row=(return_number - 1), column=0)
         return_number += 1
+    back_button = Button(text="Go Back", width=15, command=main_screen)
+    back_button.grid(row=0, column=0)
 
 
 def view_dinner():
@@ -72,12 +76,42 @@ def view_dinner():
         option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
         option_label.grid(row=(return_number - 1), column=0)
         return_number += 1
+    back_button = Button(text="Go Back", width=15, command=main_screen)
+    back_button.grid(row=0, column=0)
 
 
 def clear_frame():
     for widget in window.winfo_children():
         widget.destroy()
 
+
+def main_screen():
+    clear_frame()
+    welcome_label = Label(text="Welcome! \n What meal are you hungry for? \n", font=("Arial", 30))
+    welcome_label.grid(row=0, column=0, columnspan=3)
+
+    # Meal Buttons
+    breakfast_button = Button(text="Breakfast", width=15, command=breakfast_choice)
+    breakfast_button.grid(row=1, column=0)
+    lunch_button = Button(text="Lunch", width=15, command=lunch_choice)
+    lunch_button.grid(row=1, column=1)
+    dinner_button = Button(text="Dinner", width=15, command=dinner_choice)
+    dinner_button.grid(row=1, column=2)
+
+    # Bottom Label(s)
+    return_label = Label(text="\nClick a button above to decide pick a restaurant \n\n", font=("Arial", 24))
+    return_label.grid(row=2, column=0, columnspan=3)
+
+    # add_button = Button(text="Add Restaurant", width=15, command=add_menu)
+    # add_button.grid(row=3, column=0)
+
+    # View buttons and options
+    breakfast_view_button = Button(text="View Breakfast Options", width=15, command=view_breakfast)
+    breakfast_view_button.grid(row=3, column=0)
+    lunch_view_button = Button(text="View Lunch Options", width=15, command=view_lunch)
+    lunch_view_button.grid(row=3, column=1)
+    dinner_view_button = Button(text="View Dinner Options", width=15, command=view_dinner)
+    dinner_view_button.grid(row=3, column=2)
 
 # ---------------------------------------------- Main Screen ---------------------------------------------- #
 
