@@ -128,6 +128,28 @@ def view_menu():
 # ---------------------------------------------- Add Screen ---------------------------------------------- #
 def add_menu():
     clear_frame()
+
+    # Make Submit button work
+    def submit_add_button():
+        new_restaurant = restaurant_name.get()
+        breakfast_check = b_checked_state.get()
+        lunch_check = l_checked_state.get()
+        dinner_check = d_checked_state.get()
+
+        if breakfast_check == 1:
+            with open("breakfast.txt", 'a') as breakfast_menu:
+                breakfast_menu.write(f"\n{new_restaurant}")
+            add_menu()
+        elif lunch_check == 1:
+            with open("lunch.txt", 'a') as lunch_menu:
+                lunch_menu.write(f"\n{new_restaurant}")
+            add_menu()
+        elif dinner_check == 1:
+            with open("dinner.txt", 'a') as dinner_menu:
+                dinner_menu.write(f"\n{new_restaurant}")
+            add_menu()
+        else:
+            print("error with checkboxes")
     # TOP BUTTONS
     back_button = Button(text="Main Menu", width=5, command=main_screen)
     back_button.grid(row=0, column=0)
@@ -178,7 +200,7 @@ def add_menu():
         return_number += 1
 
     # ADD SECTION
-    add_label = Label(text="\n Add your new restaurant below: \n", font=("Arial",30))
+    add_label = Label(text="\n Add your new restaurant below: \n", font=("Arial", 30))
     add_label.grid(row=399, column=0, columnspan=3)
     # ENTRY BOX
     restaurant_label = Label(text="Restaurant Name:")
@@ -189,17 +211,18 @@ def add_menu():
     # CHECKBOXES
     check_label = Label(text="This restaurant serves:")
     check_label.grid(row=401, column=0)
-    b_checkbox = Checkbutton(text="Breakfast")
+    b_checked_state = IntVar()
+    b_checkbox = Checkbutton(text="Breakfast", variable=b_checked_state)
     b_checkbox.grid(row=402, column=0)
-    l_checkbox = Checkbutton(text="Lunch")
+    l_checked_state = IntVar()
+    l_checkbox = Checkbutton(text="Lunch", variable=l_checked_state)
     l_checkbox.grid(row=402, column=1)
-    d_checkbox = Checkbutton(text="Dinner")
+    d_checked_state = IntVar()
+    d_checkbox = Checkbutton(text="Dinner", variable=d_checked_state)
     d_checkbox.grid(row=402, column=2)
     # SUBMIT BUTTON
-    submit_button = Button(text="Submit", width=15)      # ADD COMMAND
+    submit_button = Button(text="Submit", width=15, command=submit_add_button)
     submit_button.grid(row=403, column=1)
-    # TODO create command tying the submit button to entry label
-        # Use "get"?
 
 
 # ---------------------------------------------- KEEP WINDOW OPEN ---------------------------------------------- #
