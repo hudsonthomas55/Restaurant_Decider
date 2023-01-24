@@ -3,12 +3,9 @@ from tkinter import *
 # from tkinter import messagebox
 import random
 
-# ---------------------------------------------- CONSTANTS ---------------------------------------------- #
-BACKGROUND_COLOR = "#B1DDC6"
-
 # ---------------------------------------------- WINDOW SETUP ---------------------------------------------- #
 window = Tk()
-window.minsize(width=600, height=400)
+window.minsize(width=700, height=500)
 window.title("Restaurant Decider")
 window.config(padx=50, pady=50)
 
@@ -71,7 +68,7 @@ def main_screen():
     # add_button.grid(row=3, column=0)
 
     # View buttons and options
-    breakfast_view_button = Button(text="View Breakfast Options", width=15, command=view_menu)
+    breakfast_view_button = Button(text="View Restaurant Options", width=15, command=view_menu)
     breakfast_view_button.grid(row=3, column=0)
 
 
@@ -82,7 +79,8 @@ def view_menu():
     back_button = Button(text="Go Back", width=5, command=main_screen)
     back_button.grid(row=0, column=0)
     # HEADER LABEL
-    header_label = Label(text="Welcome to the view menu! See below list of restaurant options: \n", font=("Arial", 30))
+    header_label = Label(text="\n Welcome to the view menu! See below list of restaurant options: \n", font=("Arial",
+                                                                                                             30))
     header_label.grid(row=1, column=0, columnspan=3)
 
     # BREAKFAST SECTION
@@ -126,22 +124,7 @@ def view_menu():
 
 
 # ---------------------------------------------- Add Screen ---------------------------------------------- #
-# def add_menu():
-#
-#     main_label = Label(text="Welcome to the add menu. \n What meal does the restaurant serve? \n", font=("Arial", 30))
-#     main_label.grid(row=0, column=0, columnspan=3)
-#
-#
-#     # Create new buttons for add
-#     breakfast_add_button = Button(text="Breakfast", width=15, command=breakfast_add)
-#     breakfast_add_button.grid(row=1, column=0)
-#     lunch_add_button = Button(text="Lunch", width=15, command=lunch_add)
-#     lunch_add_button.grid(row=1, column=1)
-#     dinner_add_button = Button(text="Dinner", width=15, command=dinner_add)
-#     dinner_add_button.grid(row=1, column=2)
-#
-#     back_button = Button(text="Back to Menu", width=30, command=main_screen())
-#     back_button.grid(row=2, column=0, columnspan=3)
+
 
 
 # ---------------------------------------------- KEEP WINDOW OPEN ---------------------------------------------- #
