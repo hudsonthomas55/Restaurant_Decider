@@ -148,21 +148,46 @@ def add_menu():
             with open("dinner.txt", 'a') as dinner_menu:
                 dinner_menu.write(f"\n{new_restaurant}")
             add_menu()
-        else:
-            print("error with checkboxes")
+
     # TOP BUTTONS
     back_button = Button(text="Main Menu", width=5, command=main_screen)
     back_button.grid(row=0, column=0)
     add_button = Button(text="Add Restaurant", width=10)  # Add command to this line
     add_button.grid(row=0, column=2)
+
+    # ADD SECTION
+    add_label = Label(text="\n Add your new restaurant below: \n", font=("Arial", 20))
+    add_label.grid(row=1, column=0, columnspan=3)
+    # ENTRY BOX
+    restaurant_label = Label(text="Restaurant Name:")
+    restaurant_label.grid(row=2, column=0)
+    restaurant_name = Entry(width=30)
+    restaurant_name.insert(END, string="Be mindful of spelling and capitalization")
+    restaurant_name.grid(row=2, column=1)
+    # CHECKBOXES
+    check_label = Label(text="This restaurant serves:")
+    check_label.grid(row=3, column=0)
+    b_checked_state = IntVar()
+    b_checkbox = Checkbutton(text="Breakfast", variable=b_checked_state)
+    b_checkbox.grid(row=4, column=0)
+    l_checked_state = IntVar()
+    l_checkbox = Checkbutton(text="Lunch", variable=l_checked_state)
+    l_checkbox.grid(row=4, column=1)
+    d_checked_state = IntVar()
+    d_checkbox = Checkbutton(text="Dinner", variable=d_checked_state)
+    d_checkbox.grid(row=4, column=2)
+    # SUBMIT BUTTON
+    submit_button = Button(text="Submit", width=15, command=submit_add_button)
+    submit_button.grid(row=5, column=1)
+
+
     # HEADER LABEL
-    header_label = Label(text="\n Welcome to the add menu! See below list of restaurant options: \n", font=("Arial",
-                                                                                                             30))
-    header_label.grid(row=1, column=0, columnspan=3)
+    header_label = Label(text="\nSee below list of current restaurant options: ", font=("Arial", 30))
+    header_label.grid(row=6, column=0, columnspan=3)
 
     # BREAKFAST SECTION
-    breakfast_label = Label(text="Breakfast: \n")
-    breakfast_label.grid(row=2, column=0)
+    breakfast_label = Label(text="Breakfast: \n", font=("Arial", 16))
+    breakfast_label.grid(row=7, column=0)
     return_number = 1
     breakfast_option_list = []
     with open("breakfast.txt") as b_menu:
@@ -170,12 +195,12 @@ def add_menu():
             breakfast_option_list.append(option)
     for restaurant in breakfast_option_list:
         option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
-        option_label.grid(row=(return_number + 2), column=0)
+        option_label.grid(row=(return_number + 7), column=0)
         return_number += 1
 
     # LUNCH SECTION
-    lunch_label = Label(text="Lunch: \n")
-    lunch_label.grid(row=2, column=1)
+    lunch_label = Label(text="Lunch: \n", font=("Arial", 16))
+    lunch_label.grid(row=7, column=1)
     return_number = 1
     lunch_option_list = []
     with open("lunch.txt") as l_menu:
@@ -183,12 +208,12 @@ def add_menu():
             lunch_option_list.append(option)
     for restaurant in lunch_option_list:
         option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
-        option_label.grid(row=(return_number + 2), column=1)
+        option_label.grid(row=(return_number + 7), column=1)
         return_number += 1
 
     # DINNER SECTION
-    dinner_label = Label(text="Dinner: \n")
-    dinner_label.grid(row=2, column=2)
+    dinner_label = Label(text="Dinner: \n", font=("Arial", 16))
+    dinner_label.grid(row=7, column=2)
     return_number = 1
     option_list = []
     with open("dinner.txt") as d_menu:
@@ -196,33 +221,10 @@ def add_menu():
             option_list.append(option)
     for restaurant in option_list:
         option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
-        option_label.grid(row=(return_number + 2), column=2)
+        option_label.grid(row=(return_number + 7), column=2)
         return_number += 1
 
-    # ADD SECTION
-    add_label = Label(text="\n Add your new restaurant below: \n", font=("Arial", 30))
-    add_label.grid(row=399, column=0, columnspan=3)
-    # ENTRY BOX
-    restaurant_label = Label(text="Restaurant Name:")
-    restaurant_label.grid(row=400, column=0)
-    restaurant_name = Entry(width=30)
-    restaurant_name.insert(END, string="Be mindful of spelling and capitalization")
-    restaurant_name.grid(row=400, column=1)
-    # CHECKBOXES
-    check_label = Label(text="This restaurant serves:")
-    check_label.grid(row=401, column=0)
-    b_checked_state = IntVar()
-    b_checkbox = Checkbutton(text="Breakfast", variable=b_checked_state)
-    b_checkbox.grid(row=402, column=0)
-    l_checked_state = IntVar()
-    l_checkbox = Checkbutton(text="Lunch", variable=l_checked_state)
-    l_checkbox.grid(row=402, column=1)
-    d_checked_state = IntVar()
-    d_checkbox = Checkbutton(text="Dinner", variable=d_checked_state)
-    d_checkbox.grid(row=402, column=2)
-    # SUBMIT BUTTON
-    submit_button = Button(text="Submit", width=15, command=submit_add_button)
-    submit_button.grid(row=403, column=1)
+
 
 
 # ---------------------------------------------- KEEP WINDOW OPEN ---------------------------------------------- #
