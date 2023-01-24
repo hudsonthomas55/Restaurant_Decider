@@ -166,7 +166,7 @@ def add_menu():
     restaurant_name.grid(row=2, column=1)
     # CHECKBOXES
     check_label = Label(text="This restaurant serves:")
-    check_label.grid(row=3, column=0)
+    check_label.grid(row=3, column=1)
     b_checked_state = IntVar()
     b_checkbox = Checkbutton(text="Breakfast", variable=b_checked_state)
     b_checkbox.grid(row=4, column=0)
