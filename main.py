@@ -1,6 +1,5 @@
 # ----------------------------------------------- Imports ----------------------------------------------- #
 from tkinter import *
-# from tkinter import messagebox
 import random
 
 # ---------------------------------------------- WINDOW SETUP ---------------------------------------------- #
@@ -64,8 +63,6 @@ def main_screen():
     return_label = Label(text="\n\n\n", font=("Arial", 24))
     return_label.grid(row=2, column=0, columnspan=3)
 
-    # add_button = Button(text="Add Restaurant", width=15, command=add_menu)
-    # add_button.grid(row=3, column=0)
 
     # View buttons and options
     breakfast_view_button = Button(text="View Restaurant Options", width=15, command=view_menu)
