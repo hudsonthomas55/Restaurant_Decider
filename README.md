@@ -14,7 +14,4 @@ This project started as a discussion between my wife an I, though I imagine this
 I decided to create this project to end this discussion and frustration once and for all.
 
 
-UPDATE 1/18/23:
-There are currently two active and running python scripts avialable
-The main.py file is terminal based and fully functional. 
-The guy.py file is a GUI version of the project and currently only returns values, which is the sole point of the project. The only issue is that you cannot edit or view the options for each meal option. This will be fixed in upcoming updates.
+Run the main.py to get started! It opens up the main menu where you can have the program decide where you will eat tonight. If you want to view/add restaurants, open the "View" menu and follow the button prompts.
