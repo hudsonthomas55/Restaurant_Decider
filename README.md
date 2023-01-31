@@ -1,5 +1,5 @@
 # Restaurant_Decider
-Program to help end the "What do you want to eat" debate, once and for all
+This program is designed to end the "What do you want to eat" debate, once and for all
 
 
 
