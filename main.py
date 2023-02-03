@@ -92,7 +92,7 @@ def view_menu():
             breakfast_option_list.append(option)
     for restaurant in breakfast_option_list:
         option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
-        option_label.grid(row=(return_number + 2), column=0)
+        option_label.grid(row=(return_number + 2), column=0, sticky="w")
         return_number += 1
 
     # LUNCH SECTION
@@ -105,7 +105,7 @@ def view_menu():
             lunch_option_list.append(option)
     for restaurant in lunch_option_list:
         option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
-        option_label.grid(row=(return_number + 2), column=1)
+        option_label.grid(row=(return_number + 2), column=1, sticky="w")
         return_number += 1
 
     # DINNER SECTION
@@ -118,7 +118,7 @@ def view_menu():
             option_list.append(option)
     for restaurant in option_list:
         option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
-        option_label.grid(row=(return_number + 2), column=2)
+        option_label.grid(row=(return_number + 2), column=2, sticky="w")
         return_number += 1
 
 
@@ -192,7 +192,7 @@ def add_menu():
             breakfast_option_list.append(option)
     for restaurant in breakfast_option_list:
         option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
-        option_label.grid(row=(return_number + 7), column=0)
+        option_label.grid(row=(return_number + 7), column=0, sticky="w")
         return_number += 1
 
     # LUNCH SECTION
@@ -205,7 +205,7 @@ def add_menu():
             lunch_option_list.append(option)
     for restaurant in lunch_option_list:
         option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
-        option_label.grid(row=(return_number + 7), column=1)
+        option_label.grid(row=(return_number + 7), column=1, sticky="w")
         return_number += 1
 
     # DINNER SECTION
@@ -218,7 +218,7 @@ def add_menu():
             option_list.append(option)
     for restaurant in option_list:
         option_label = Label(text=f"{return_number}. {restaurant}", font=("Arial", 12))
-        option_label.grid(row=(return_number + 7), column=2)
+        option_label.grid(row=(return_number + 7), column=2, sticky="w")
         return_number += 1
 
 
