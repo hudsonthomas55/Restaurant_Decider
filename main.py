@@ -13,7 +13,7 @@ window.config(padx=50, pady=50)
 def breakfast_choice():
     clear_frame()
     main_screen()
-    with open("breakfast.txt", 'r') as b_menu:
+    with open("breakfast.txt", 'r', encoding='utf-8') as b_menu:
         restaurants = b_menu.readlines()
         random_rest = random.choice(restaurants)
     return_label = Label(text=f"\n Your restaurant choice is: {random_rest} \n\n", font=("Arial", 24))
@@ -23,7 +23,7 @@ def breakfast_choice():
 def lunch_choice():
     clear_frame()
     main_screen()
-    with open("lunch.txt", 'r') as l_menu:
+    with open("lunch.txt", 'r', encoding='utf-8') as l_menu:
         restaurants = l_menu.readlines()
         random_rest = random.choice(restaurants)
     return_label = Label(text=f"\n Your restaurant choice is: {random_rest} \n\n", font=("Arial", 24))
@@ -33,7 +33,7 @@ def lunch_choice():
 def dinner_choice():
     clear_frame()
     main_screen()
-    with open("dinner.txt", 'r') as d_menu:
+    with open("dinner.txt", 'r', encoding='utf-8') as d_menu:
         restaurants = d_menu.readlines()
         random_rest = random.choice(restaurants)
     return_label = Label(text=f"\n Your restaurant choice is: {random_rest} \n\n", font=("Arial", 24))
@@ -87,7 +87,7 @@ def view_menu():
     breakfast_label.grid(row=2, column=0)
     return_number = 1
     breakfast_option_list = []
-    with open("breakfast.txt") as b_menu:
+    with open("breakfast.txt", encoding='utf-8') as b_menu:
         for option in b_menu.readlines():
             breakfast_option_list.append(option)
     for restaurant in breakfast_option_list:
@@ -100,7 +100,7 @@ def view_menu():
     lunch_label.grid(row=2, column=1)
     return_number = 1
     lunch_option_list = []
-    with open("lunch.txt") as l_menu:
+    with open("lunch.txt", encoding='utf-8') as l_menu:
         for option in l_menu.readlines():
             lunch_option_list.append(option)
     for restaurant in lunch_option_list:
@@ -113,7 +113,7 @@ def view_menu():
     dinner_label.grid(row=2, column=2)
     return_number = 1
     option_list = []
-    with open("dinner.txt") as d_menu:
+    with open("dinner.txt", encoding='utf-8') as d_menu:
         for option in d_menu.readlines():
             option_list.append(option)
     for restaurant in option_list:
@@ -134,15 +134,15 @@ def add_menu():
         dinner_check = d_checked_state.get()
 
         if breakfast_check == 1:
-            with open("breakfast.txt", 'a') as breakfast_menu:
+            with open("breakfast.txt", 'a', encoding='utf-8') as breakfast_menu:
                 breakfast_menu.write(f"\n{new_restaurant}")
             add_menu()
         elif lunch_check == 1:
-            with open("lunch.txt", 'a') as lunch_menu:
+            with open("lunch.txt", 'a', encoding='utf-8') as lunch_menu:
                 lunch_menu.write(f"\n{new_restaurant}")
             add_menu()
         elif dinner_check == 1:
-            with open("dinner.txt", 'a') as dinner_menu:
+            with open("dinner.txt", 'a', encoding='utf-8') as dinner_menu:
                 dinner_menu.write(f"\n{new_restaurant}")
             add_menu()
 
@@ -187,7 +187,7 @@ def add_menu():
     breakfast_label.grid(row=7, column=0)
     return_number = 1
     breakfast_option_list = []
-    with open("breakfast.txt") as b_menu:
+    with open("breakfast.txt", encoding='utf-8') as b_menu:
         for option in b_menu.readlines():
             breakfast_option_list.append(option)
     for restaurant in breakfast_option_list:
@@ -200,7 +200,7 @@ def add_menu():
     lunch_label.grid(row=7, column=1)
     return_number = 1
     lunch_option_list = []
-    with open("lunch.txt") as l_menu:
+    with open("lunch.txt", encoding='utf-8') as l_menu:
         for option in l_menu.readlines():
             lunch_option_list.append(option)
     for restaurant in lunch_option_list:
@@ -213,7 +213,7 @@ def add_menu():
     dinner_label.grid(row=7, column=2)
     return_number = 1
     option_list = []
-    with open("dinner.txt") as d_menu:
+    with open("dinner.txt", encoding='utf-8') as d_menu:
         for option in d_menu.readlines():
             option_list.append(option)
     for restaurant in option_list:
