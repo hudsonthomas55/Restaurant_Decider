@@ -41,12 +41,14 @@ def dinner_choice():
 
 
 def clear_frame():
+    """Clear screen, used to change screens and functions."""
     for widget in window.winfo_children():
         widget.destroy()
 
 
 # ------------------------------- Main Screen ----------------------------------- #
 def main_screen():
+    """Take user to main screen, allowing them to run the actual program."""
     clear_frame()
     welcome_label = Label(text="Welcome! \n What meal are you hungry for? \n", font=("Arial", 30))
     welcome_label.grid(row=0, column=0, columnspan=3)
@@ -71,6 +73,7 @@ def main_screen():
 
 # -------------------------------- View Screen ----------------------------------- #
 def view_menu():
+    """Take user to screen showing all restaurant options for each meal."""
     clear_frame()
     # TOP BUTTONS
     back_button = Button(text="Go Back", width=5, command=main_screen)
@@ -124,6 +127,7 @@ def view_menu():
 
 # ---------------------------------- Add Screen ----------------------------------- #
 def add_menu():
+    """Take the user to the add restaurant option menu."""
     clear_frame()
 
     # Make Submit button work
