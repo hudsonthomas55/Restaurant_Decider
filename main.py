@@ -11,6 +11,7 @@ window.config(padx=50, pady=50)
 
 # ------------------------------------- Functions ----------------------------------- #
 def breakfast_choice():
+    """Decide breakfast option for user, once button pushed."""
     clear_frame()
     main_screen()
     with open("breakfast.txt", 'r', encoding='utf-8') as b_menu:
@@ -21,6 +22,7 @@ def breakfast_choice():
 
 
 def lunch_choice():
+    """Decide lunch option for user, once button pushed."""
     clear_frame()
     main_screen()
     with open("lunch.txt", 'r', encoding='utf-8') as l_menu:
@@ -31,6 +33,7 @@ def lunch_choice():
 
 
 def dinner_choice():
+    """Decide dinner option for user, once button pushed."""
     clear_frame()
     main_screen()
     with open("dinner.txt", 'r', encoding='utf-8') as d_menu:
