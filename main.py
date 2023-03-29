@@ -17,7 +17,7 @@ def breakfast_choice():
     with open("breakfast.txt", 'r', encoding='utf-8') as b_menu:
         restaurants = b_menu.readlines()
         random_rest = random.choice(restaurants)
-    return_label = Label(text=f"\n Your restaurant choice is: {random_rest} \n\n", font=("Arial", 24))
+    return_label = Label(text=f"\n You should eat at: {random_rest} \n\n", font=("Arial", 24))
     return_label.grid(row=2, column=0, columnspan=3)
 
 
@@ -28,7 +28,7 @@ def lunch_choice():
     with open("lunch.txt", 'r', encoding='utf-8') as l_menu:
         restaurants = l_menu.readlines()
         random_rest = random.choice(restaurants)
-    return_label = Label(text=f"\n Your restaurant choice is: {random_rest} \n\n", font=("Arial", 24))
+    return_label = Label(text=f"\n You should eat at: {random_rest} \n\n", font=("Arial", 24))
     return_label.grid(row=2, column=0, columnspan=3)
 
 
@@ -39,7 +39,7 @@ def dinner_choice():
     with open("dinner.txt", 'r', encoding='utf-8') as d_menu:
         restaurants = d_menu.readlines()
         random_rest = random.choice(restaurants)
-    return_label = Label(text=f"\n Your restaurant choice is: {random_rest} \n\n", font=("Arial", 24))
+    return_label = Label(text=f"\n You should eat at: {random_rest} \n\n", font=("Arial", 24))
     return_label.grid(row=2, column=0, columnspan=3)
 
 
@@ -84,8 +84,7 @@ def view_menu():
     add_button = Button(text="Add Restaurant", width=10, command=add_menu)
     add_button.grid(row=0, column=2)
     # HEADER LABEL
-    header_label = Label(text="\n Welcome to the view menu! See below list of restaurant options: \n", font=("Arial",
-                                                                                                             30))
+    header_label = Label(text="\n See below list of restaurant options: \n", font=("Arial", 30))
     header_label.grid(row=1, column=0, columnspan=3)
 
     # BREAKFAST SECTION
@@ -186,7 +185,7 @@ def add_menu():
 
 
     # HEADER LABEL
-    header_label = Label(text="\nSee below list of current restaurant options: ", font=("Arial", 30))
+    header_label = Label(text="\nSee below list of restaurant options: ", font=("Arial", 30))
     header_label.grid(row=6, column=0, columnspan=3)
 
     # BREAKFAST SECTION
